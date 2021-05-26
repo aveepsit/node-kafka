@@ -1,0 +1,28 @@
+{
+  "name": "node-kafka",
+  "version": "1.0.0",
+  "description": "Node and Kafka for event driven architecture",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "producer": "nodemon ./producer/index.js",
+    "consumer": "nodemon ./consumer/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aveepsit/node-kafka.git"
+  },
+  "author": "Aveepsit Chowdhury <aveepsitchowdhury@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/aveepsit/node-kafka/issues"
+  },
+  "homepage": "https://github.com/aveepsit/node-kafka#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  },
+  "dependencies": {
+    "avsc": "^5.7.0",
+    "node-rdkafka": "^2.10.1"
+  }
+}
