@@ -1,6 +1,7 @@
 console.log("This is consumer");
 
 import Kafka from "node-rdkafka";
+import eventType from "../eventType.js";
 
 const consumer = Kafka.KafkaConsumer(
   {
@@ -19,5 +20,5 @@ consumer
     consumer.consume();
   })
   .on("data", (data) => {
-    console.log(`Message received: ${data.value}`);
+    console.log(`Message received: ${eventType.fromBuffer(data.value)}`);
   });
