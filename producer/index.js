@@ -10,8 +10,26 @@ const stream = Kafka.Producer.createWriteStream(
   { topic: "test" }
 );
 
+function getRandomAnimal() {
+  const categories = ["CAT", "DOG"];
+  return categories[Math.floor(Math.random() * categories.length)];
+}
+
+function getRandomNoise(animal) {
+  if (animal === "CAT") {
+    const noises = ["Purr", "Meow", "Grrr"];
+    return noises[Math.floor(Math.random() * noises.length)];
+  } else if (animal === "DOG") {
+    const noises = ["Woof", "Bark", "Grrr"];
+    return noises[Math.floor(Math.random() * noises.length)];
+  }
+}
+
 function queueMessage() {
-  const event = { category: "DOG", noise: "bark" };
+  const category = getRandomAnimal();
+  const noise = getRandomNoise(category);
+  const event = { category, noise };
+  console.log(event);
   const success = stream.write(eventType.toBuffer(event));
   console.log(success ? "Message wrote successfully" : "Message not written");
 }
